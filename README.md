@@ -1,5 +1,5 @@
 # VBA-Challenge_EyasuYilma
-Challenge # 2
+# Challenge # 2
 Sub Stock_Analysis()
 
 ' i is a row where the analysis starts and ends on the last row
@@ -11,7 +11,7 @@ Dim D As Double
 Dim R As Integer
 Dim Ticker As String
 Dim Total_Stock_Volume As Double
-'R is a row where the result appears and increases for every new result
+'R is a row where the result appears and increases by for every new result
 R = 2
 'D is a row where the new Ticker starts
 D = 2
@@ -26,14 +26,23 @@ D = 2
          'Percentage change yearly change divided by start value
           Cells(R, 11) = (Cells(R, 10) / Cells(D, 3)) * 100
           
-          'Stock volume the sum of all volume by Ticker
+          'Stock volume is the sum of all volume by Ticker
             
             Cells(R, 12) = Application.WorksheetFunction.Sum(Range(Cells(D, 7), Cells(i, 7)))
+           
+           'Conditional formatting Yearly Change
            If Cells(R, 10) < 0 Then
            Cells(R, 10).Interior.ColorIndex = 3
            Else
            Cells(R, 10).Interior.ColorIndex = 4
            End If
+           'Conditional formatting Percent Change
+           If Cells(R, 11) < 0 Then
+           Cells(R, 11).Interior.ColorIndex = 3
+           Else
+           Cells(R, 11).Interior.ColorIndex = 4
+           End If
+                 
         R = R + 1
         D = i + 1
         Else
@@ -72,4 +81,6 @@ D = 2
         
                        
 End Sub
+
+
 
