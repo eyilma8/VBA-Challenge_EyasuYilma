@@ -11,7 +11,7 @@ Dim D As Double
 Dim R As Integer
 Dim Ticker As String
 Dim Total_Stock_Volume As Double
-'R is a row where the result appears and increases by for every new result
+'R is a row where the result appears and increases by 1 for every new result
 R = 2
 'D is a row where the new Ticker starts
 D = 2
